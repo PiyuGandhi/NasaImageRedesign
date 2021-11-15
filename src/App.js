@@ -12,13 +12,19 @@ import React from 'react';
 
 function App() {
   const [urls, setUrls] = React.useState([]);
-  const [query, setQuery] = React.useState("nebula");
+  const [query, setQuery] = React.useState("");
 
   const APIKEY = "YvLRI5ChIJyIdmMZEHzNnrwA7ybdLpjeaEoiypXI";
   const IMAGE_ENDPOINT = "https://images-api.nasa.gov/";
 
 
   const handleSubmit = e => {
+
+    if (query === "") {
+      alert("Please enter a query.");
+      return;
+    }
+
     axios.get(IMAGE_ENDPOINT + `search?q=${query}&media_type=image`).then(resp => {
       console.log(resp)
       const data = resp['data']['collection']['items'].map(ele => {return ele['links'][0]['href']});
@@ -32,8 +38,8 @@ function App() {
   return (
     <div className="w-full flex flex-col">
       <div className="m-auto flex flex-col">
-        <input className="border-2" placeholder="Query" onChange={e => { setQuery(e.target.value) }} />
-        <button onClick={handleSubmit}>Submit Query</button>
+        <input className="border-2 border-black rounded-xl p-2 m-5" placeholder="Query" onChange={e => { setQuery(e.target.value) }} />
+        <button className=" rounded-full m-4 hover:shadow-xl hover:-translate-y-2 p-2 bg-green-500 capitalize text-white font-semibold" onClick={handleSubmit}>SUBMIT</button>
       </div>
     <div className="flex flex-wrap flex-row w-full">
       {urls.length ? urls.map(url => { return <ImageDisplay url={url} />}) :""}
