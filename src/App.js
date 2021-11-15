@@ -3,11 +3,12 @@ import axios from 'axios';
 import React from 'react';
 
 // First iteration
-// 1. Google like search box with search
-// 2. Add autocomplete
+// 1. Google like search box with search - form and state management, api management
+// 2. Add autocomplete, multiple pages - form optimization, data handling
 // 3. Add images of the day
-// 4. Add framer animations
-// 5. Add trending page
+// 4. Add central state management using Redux - Data manipulation, handling large data at scale,
+// 5. Add animations
+// 6. Add React optimizations in the form of useCallBack and useMemo
 
 function App() {
   const [urls, setUrls] = React.useState([]);
@@ -44,7 +45,7 @@ function App() {
 const ImageDisplay = props => {
   return (
     <div className="transform transition duration-500 hover:scale-110 p-5">
-      <img src={props.url} />
+      <img alt={props.url} src={props.url} />
     </div>
   )
 }
