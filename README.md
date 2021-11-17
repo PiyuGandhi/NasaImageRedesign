@@ -1,4 +1,4 @@
-## This website is deployed with netlify  [https://festive-euclid-0c75be.netlify.app/] (https://festive-euclid-0c75be.netlify.app/)
+This website is deployed with netlify  [https://festive-euclid-0c75be.netlify.app/] (https://festive-euclid-0c75be.netlify.app/)
 
 # Getting Started with Create React App
 
